@@ -16,8 +16,6 @@ class AddItemActivity : BaseActivity() {
         setContentView(R.layout.activity_add_item)
         setupNavigation()
 
-        toolbar?.title = "Novi oglas"
-
         val etNaziv = findViewById<TextInputEditText>(R.id.et_naziv)
         val etOpis = findViewById<TextInputEditText>(R.id.et_opis)
         val etCijena = findViewById<TextInputEditText>(R.id.et_cijena)

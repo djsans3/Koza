@@ -13,8 +13,6 @@ class ProfileActivity : BaseActivity() {
         setContentView(R.layout.activity_profile)
         setupNavigation()
 
-        toolbar?.title = "Moj profil"
-
         // TODO: Učitaj podatke iz Firebase
         val btnOdjavi = findViewById<MaterialButton>(R.id.btn_odjavi)
 
@@ -25,7 +23,7 @@ class ProfileActivity : BaseActivity() {
         }
 
         postaviListener(R.id.item_moji_oglasi, "Moji oglasi")
-        postaviListener(R.id.item_omiljeni, "Omiljeni artikli 🐐")
+        postaviListener(R.id.item_omiljeni, "Omiljeni artikli 💛")
         postaviListener(R.id.item_narudzbe, "Moje narudžbe")
         postaviListener(R.id.item_prodaje, "Moje prodaje")
         postaviListener(R.id.item_postavke, "Postavke računa")

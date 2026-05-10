@@ -6,10 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/koza_bg"
+    android:paddingTop="48dp"
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <!-- Grid lista oglasa – od samog vrha ekrana -->
+    <!-- Non-functional Search Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Pretraži na Kozi..."
+        app:startIconDrawable="@android:drawable/ic_menu_search"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Grid lista oglasa -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_oglasi"
         android:layout_width="match_parent"
@@ -25,13 +45,12 @@
         android:clipChildren="false"
         android:clipToPadding="false">
 
-        <!-- Navbar je pomaknut dolje za pola visine FAB-a (28dp)
-             kako bi FAB mogao "iskočiti" iznad njega -->
+        <!-- Navbar -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:background="@color/koza_white"
             app:menu="@menu/bottom_nav_menu"
             app:itemIconTint="@color/koza_green"
@@ -39,7 +58,7 @@
             app:labelVisibilityMode="unlabeled"
             app:itemBackground="@drawable/nav_item_background" />
 
-        <!-- FAB – zeleni krug koji iskače iz navbara, žuti plusić -->
+        <!-- FAB – veći i niže pozicioniran -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_add"
             android:layout_width="wrap_content"
@@ -49,7 +68,7 @@
             android:contentDescription="Dodaj oglas"
             app:backgroundTint="@color/koza_green"
             app:tint="@color/koza_yellow"
-            app:fabSize="normal"
+            app:fabCustomSize="64dp"
             app:elevation="8dp"
             app:pressedTranslationZ="12dp" />
 

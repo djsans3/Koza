@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/koza_white">
+    android:background="@color/koza_white"
+    android:paddingTop="32dp">
 
     <!-- Središnji sadržaj -->
     <LinearLayout
@@ -115,14 +116,14 @@
 
     </LinearLayout>
 
-    <!-- Gumb Preskoči – MORA biti NAKON LinearLayouta u FrameLayoutu
-         da bi bio iznad njega i primao klikove -->
+    <!-- Gumb Preskoči – odmaknut od vrha (status bar) -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_preskoci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_margin="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Preskoči"
         android:textSize="13sp"
         android:textColor="#666666"

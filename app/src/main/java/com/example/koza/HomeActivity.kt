@@ -18,8 +18,6 @@ class HomeActivity : BaseActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rv_oglasi)
 
         adapter = OglasAdapter(listaOglasa) { oglas ->
-            Toast.makeText(this, "Kliknuto: ${oglas.naziv}", Toast.LENGTH_SHORT).show()
-            // TODO: Intent za DetaljiOglasaActivity
         }
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)

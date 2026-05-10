@@ -28,7 +28,7 @@
                 android:background="@color/koza_green_light"
                 android:src="@drawable/koza404" />
 
-            <!-- Wishlist badge – emoji koze + broj (dolje desno) -->
+            <!-- Wishlist badge – srce + broj (dolje desno) -->
             <LinearLayout
                 android:id="@+id/ll_wishlist"
                 android:layout_width="wrap_content"
@@ -46,8 +46,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🐐"
-                    android:textSize="14sp"
+                    android:text="💛"
+                    android:textSize="12sp"
                     android:layout_marginEnd="4dp" />
 
                 <TextView

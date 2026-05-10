@@ -6,16 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/koza_bg"
+    android:paddingTop="32dp"
     android:clipChildren="false"
     android:clipToPadding="false">
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/koza_green"
-        app:title="Novi oglas"
-        app:titleTextColor="@color/koza_white" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -314,7 +307,7 @@
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:background="@color/koza_white"
             app:menu="@menu/bottom_nav_menu"
             app:itemIconTint="@color/koza_green"
@@ -331,7 +324,7 @@
             android:contentDescription="Dodaj oglas"
             app:backgroundTint="@color/koza_green"
             app:tint="@color/koza_yellow"
-            app:fabSize="normal"
+            app:fabCustomSize="64dp"
             app:elevation="8dp"
             app:pressedTranslationZ="12dp" />
 

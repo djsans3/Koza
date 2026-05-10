@@ -4,14 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    // Toolbar je opcionalan – HomeActivity ga nema
-    protected var toolbar: MaterialToolbar? = null
     protected lateinit var bottomNav: BottomNavigationView
     protected var fabAdd: FloatingActionButton? = null
 
@@ -20,12 +17,8 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun setupNavigation() {
-        toolbar = findViewById(R.id.toolbar)
-        toolbar?.let { setSupportActionBar(it) }
-
         bottomNav = findViewById(R.id.bottom_nav)
 
-        // FAB za dodavanje oglasa
         fabAdd = findViewById(R.id.fab_add)
         fabAdd?.setOnClickListener {
             if (this !is AddItemActivity) {
@@ -45,18 +38,17 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_search -> {
-                    Toast.makeText(this, "Pretraga – uskoro 🔍", Toast.LENGTH_SHORT).show()
-                    true
+                    false
                 }
 
                 R.id.nav_chat -> {
-                    Toast.makeText(this, "Chat – uskoro 💬", Toast.LENGTH_SHORT).show()
-                    true
+                    false
                 }
 
                 R.id.nav_profile -> {
                     if (this !is ProfileActivity) {
                         startActivity(Intent(this, ProfileActivity::class.java))
+                        finish()
                     }
                     true
                 }

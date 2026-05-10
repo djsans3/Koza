@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/koza_bg">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/koza_green"
+        app:title="Novi oglas"
+        app:titleTextColor="@color/koza_white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Dodaj fotografije -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_slika"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/koza_green_light"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@android:drawable/ic_input_add"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:text="Dodaj fotografije"
+                        android:textSize="15sp"
+                        android:textColor="@color/koza_green"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="Prva fotografija bit će thumbnail"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_gray"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- NAZIV -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Naziv artikla"
+                android:layout_marginBottom="14dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_naziv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- KATEGORIJA -->
+            <TextView
+                android:text="Kategorija"
+                android:textSize="14sp"
+                android:textColor="@color/text_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_kategorija"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_odjeća"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👕 Odjeća"
+                    app:chipBackgroundColor="@color/koza_green_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_obuca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👟 Obuća"
+                    app:chipBackgroundColor="@color/koza_green_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_elektronika"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📱 Elektronika"
+                    app:chipBackgroundColor="@color/koza_green_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_namjestaj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🪑 Namještaj"
+                    app:chipBackgroundColor="@color/koza_green_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_alati"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔧 Alati"
+                    app:chipBackgroundColor="@color/koza_green_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ostalo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📦 Ostalo"
+                    app:chipBackgroundColor="@color/koza_green_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- VELIČINA – prikazuje se samo za Odjeću -->
+            <LinearLayout
+                android:id="@+id/layout_velicina_odjeca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="14dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:text="Veličina odjeće"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_velicina_odjeca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_xs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XS"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="M"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_l"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="L"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_xl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XL"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_xxl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXL"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_xxxl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXXL"
+                        style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
+
+            <!-- VELIČINA – prikazuje se samo za Obuću -->
+            <LinearLayout
+                android:id="@+id/layout_velicina_obuca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="14dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:text="Broj obuće"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Spinner za broj obuće -->
+                <Spinner
+                    android:id="@+id/spinner_obuca"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/spinner_bg"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+            <!-- STANJE – uvijek vidljivo -->
+            <TextView
+                android:text="Stanje artikla"
+                android:textSize="14sp"
+                android:textColor="@color/text_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_stanje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_novo_etiketom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Novo s etiketom"
+                    app:chipBackgroundColor="@color/koza_yellow_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_novo_bez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Novo bez etikete"
+                    app:chipBackgroundColor="@color/koza_yellow_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_kao_novo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kao novo"
+                    app:chipBackgroundColor="@color/koza_yellow_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_dobro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dobro"
+                    app:chipBackgroundColor="@color/koza_yellow_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_prihvatljivo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prihvatljivo"
+                    app:chipBackgroundColor="@color/koza_yellow_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- OPIS -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Opis (brand, detalji, napomene...)"
+                android:layout_marginBottom="14dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_opis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:gravity="top" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- CIJENA -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cijena (€)"
+                android:layout_marginBottom="14dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cijena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- LOKACIJA -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lokacija (grad u Istri)"
+                android:layout_marginBottom="20dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_lokacija"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- GUMB OBJAVI -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_objavi"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Objavi oglas"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/koza_white"
+                android:backgroundTint="@color/koza_green"
+                app:cornerRadius="14dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/koza_white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/koza_green"
+        app:itemTextColor="@color/koza_green" />
+
+</LinearLayout>

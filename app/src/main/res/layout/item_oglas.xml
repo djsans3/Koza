@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/card_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <!-- Slika artikla (placeholder) -->
+        <ImageView
+            android:id="@+id/iv_slika"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:background="@color/koza_green_light"
+            android:src="@drawable/ic_koza_logo" />
+
+        <!-- Podaci o artiklu -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp">
+
+            <TextView
+                android:id="@+id/tv_naziv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Naziv artikla"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_dark" />
+
+            <TextView
+                android:id="@+id/tv_kategorija"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategorija"
+                android:textSize="12sp"
+                android:textColor="@color/text_gray"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/tv_lokacija"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Pula, Istra"
+                android:textSize="12sp"
+                android:textColor="@color/text_gray"
+                android:layout_marginTop="4dp" />
+
+            <!-- Cijena -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_cijena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25 €"
+                android:textColor="@color/text_dark"
+                android:layout_marginTop="6dp"
+                app:chipBackgroundColor="@color/koza_yellow" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

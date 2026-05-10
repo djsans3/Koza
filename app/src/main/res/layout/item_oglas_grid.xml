@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Slika s wishlist badge-om -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
+
+            <!-- Thumbnail slika artikla -->
+            <ImageView
+                android:id="@+id/iv_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/koza_green_light"
+                android:src="@drawable/ic_koza_logo" />
+
+            <!-- Wishlist badge – glava koze + broj (dolje desno) -->
+            <LinearLayout
+                android:id="@+id/ll_wishlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="8dp"
+                android:background="#CC000000"
+                android:paddingStart="6dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Glava koze placeholder (mali logo) -->
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_koza_logo"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_wishlist_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Podaci ispod slike -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Naziv artikla -->
+            <TextView
+                android:id="@+id/tv_naziv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Naziv artikla"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_dark"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <!-- Veličina · Stanje (prikazuje se samo ako postoji) -->
+            <TextView
+                android:id="@+id/tv_velicina_stanje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="M · Kao novo"
+                android:textSize="11sp"
+                android:textColor="@color/text_gray"
+                android:layout_marginTop="2dp"
+                android:visibility="gone" />
+
+            <!-- Cijena -->
+            <TextView
+                android:id="@+id/tv_cijena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25 €"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/koza_green"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

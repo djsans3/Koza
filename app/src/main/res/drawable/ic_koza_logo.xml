@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Tijelo koze -->
+    <path
+        android:fillColor="#3A7D44"
+        android:pathData="M30,60 Q25,75 28,85 L38,85 Q36,75 38,65 Z" />
+    <path
+        android:fillColor="#3A7D44"
+        android:pathData="M55,60 Q58,75 56,85 L66,85 Q68,75 65,65 Z" />
+    <path
+        android:fillColor="#3A7D44"
+        android:pathData="M25,40 Q20,55 28,65 L65,65 Q72,55 70,40 Q60,30 45,30 Q30,30 25,40 Z" />
+
+    <!-- Glava koze -->
+    <path
+        android:fillColor="#3A7D44"
+        android:pathData="M55,20 Q65,15 70,25 Q75,35 68,40 Q60,45 52,38 Q48,30 55,20 Z" />
+
+    <!-- Rogovi -->
+    <path
+        android:fillColor="#F5C518"
+        android:pathData="M60,18 Q58,10 54,8 Q58,12 59,18 Z" />
+    <path
+        android:fillColor="#F5C518"
+        android:pathData="M66,16 Q68,8 72,7 Q69,11 67,17 Z" />
+
+    <!-- Oko -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M63,27 A2,2 0 1,1 67,27 A2,2 0 1,1 63,27 Z" />
+    <path
+        android:fillColor="#1C2B1E"
+        android:pathData="M64.5,27 A0.8,0.8 0 1,1 66,27 A0.8,0.8 0 1,1 64.5,27 Z" />
+
+    <!-- Brada -->
+    <path
+        android:fillColor="#F5C518"
+        android:pathData="M62,40 Q64,46 62,50 Q60,46 60,40 Z" />
+
+</vector>

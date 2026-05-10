@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Koza" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Koza" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/koza_green</item>
+        <item name="colorPrimaryVariant">@color/koza_green_dark</item>
+        <item name="colorOnPrimary">@color/koza_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/koza_yellow</item>
+        <item name="colorSecondaryVariant">@color/koza_yellow</item>
+        <item name="colorOnSecondary">@color/text_dark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

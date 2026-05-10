@@ -14,12 +14,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Slika s wishlist badge-om -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="180dp">
 
-            <!-- Thumbnail slika artikla -->
             <ImageView
                 android:id="@+id/iv_thumbnail"
                 android:layout_width="match_parent"
@@ -28,7 +26,6 @@
                 android:background="@color/koza_green_light"
                 android:src="@drawable/koza404" />
 
-            <!-- Wishlist badge – srce + broj (dolje desno) -->
             <LinearLayout
                 android:id="@+id/ll_wishlist"
                 android:layout_width="wrap_content"
@@ -63,14 +60,12 @@
 
         </FrameLayout>
 
-        <!-- Podaci ispod slike -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Naziv artikla -->
             <TextView
                 android:id="@+id/tv_naziv"
                 android:layout_width="match_parent"
@@ -82,7 +77,6 @@
                 android:maxLines="2"
                 android:ellipsize="end" />
 
-            <!-- Veličina · Stanje (prikazuje se samo ako postoji) -->
             <TextView
                 android:id="@+id/tv_velicina_stanje"
                 android:layout_width="match_parent"
@@ -93,7 +87,6 @@
                 android:layout_marginTop="2dp"
                 android:visibility="gone" />
 
-            <!-- Cijena -->
             <TextView
                 android:id="@+id/tv_cijena"
                 android:layout_width="wrap_content"

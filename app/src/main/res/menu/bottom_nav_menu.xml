@@ -8,10 +8,8 @@
 
     <item
         android:id="@+id/nav_home"
-        android:icon="@android:drawable/ic_menu_today"
+        android:icon="@drawable/ic_home"
         android:title="Oglasi" />
-
-    <!-- FAB is between these two groups visually -->
 
     <item
         android:id="@+id/nav_chat"
@@ -20,7 +18,7 @@
 
     <item
         android:id="@+id/nav_profile"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@drawable/ic_account"
         android:title="Profil" />
 
 </menu>

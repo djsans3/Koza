@@ -7,8 +7,8 @@ data class Oglas(
     val cijena: Double = 0.0,
     val lokacija: String = "",
     val kategorija: String = "",
-    val velicina: String = "",       // npr. "M", "42"
-    val stanje: String = "",          // npr. "Kao novo"
+    val velicina: String = "",
+    val stanje: String = "",
     val korisnikId: String = "",
     val korisnikIme: String = "",
     val slikaUrl: String = "",

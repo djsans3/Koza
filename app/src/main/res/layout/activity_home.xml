@@ -10,7 +10,6 @@
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <!-- Non-functional Search Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +28,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Grid lista oglasa -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_oglasi"
         android:layout_width="match_parent"
@@ -38,14 +36,12 @@
         android:padding="6dp"
         android:clipToPadding="false" />
 
-    <!-- Bottom nav + FAB wrapper -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"
         android:clipToPadding="false">
 
-        <!-- Navbar -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
@@ -58,7 +54,6 @@
             app:labelVisibilityMode="unlabeled"
             app:itemBackground="@drawable/nav_item_background" />
 
-        <!-- FAB – veći i niže pozicioniran -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_add"
             android:layout_width="wrap_content"

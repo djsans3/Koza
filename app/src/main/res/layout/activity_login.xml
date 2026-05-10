@@ -32,7 +32,7 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@drawable/ic_koza_logo"
+            android:src="@drawable/prozirna_mramorna_koza"
             android:scaleType="fitCenter"
             android:layout_marginBottom="8dp" />
 

@@ -26,9 +26,9 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:background="@color/koza_green_light"
-                android:src="@drawable/ic_koza_logo" />
+                android:src="@drawable/koza404" />
 
-            <!-- Wishlist badge – glava koze + broj (dolje desno) -->
+            <!-- Wishlist badge – emoji koze + broj (dolje desno) -->
             <LinearLayout
                 android:id="@+id/ll_wishlist"
                 android:layout_width="wrap_content"
@@ -43,11 +43,11 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
-                <!-- Glava koze placeholder (mali logo) -->
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_koza_logo"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🐐"
+                    android:textSize="14sp"
                     android:layout_marginEnd="4dp" />
 
                 <TextView

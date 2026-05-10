@@ -22,7 +22,7 @@
             android:layout_height="90dp"
             android:scaleType="centerCrop"
             android:background="@color/koza_green_light"
-            android:src="@drawable/ic_koza_logo" />
+            android:src="@drawable/koza404" />
 
         <!-- Podaci o artiklu -->
         <LinearLayout

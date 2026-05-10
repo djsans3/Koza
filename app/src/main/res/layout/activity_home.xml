@@ -15,7 +15,7 @@
         android:background="@color/koza_green"
         app:title="Koza"
         app:titleTextColor="@color/koza_white"
-        app:logo="@drawable/ic_koza_logo" />
+        app:logo="@drawable/prozirna_mramorna_koza" />
 
     <!-- Traka za pretragu -->
     <com.google.android.material.textfield.TextInputLayout

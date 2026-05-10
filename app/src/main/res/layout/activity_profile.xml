@@ -53,7 +53,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_koza_logo"
+                            android:src="@drawable/prozirna_mramorna_koza"
                             android:padding="10dp"
                             android:scaleType="fitCenter" />
 

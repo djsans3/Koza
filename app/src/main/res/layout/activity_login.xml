@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/koza_white">
 
-    <!-- Gumb Preskoči – gore desno -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_preskoci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        android:layout_margin="12dp"
-        android:text="Preskoči"
-        android:textSize="13sp"
-        android:textColor="#666666"
-        android:backgroundTint="#E0E0E0"
-        app:cornerRadius="20dp"
-        style="@style/Widget.MaterialComponents.Button.TextButton" />
-
     <!-- Središnji sadržaj -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,8 +16,8 @@
 
         <!-- Logo koza -->
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:src="@drawable/prozirna_mramorna_koza"
             android:scaleType="fitCenter"
             android:layout_marginBottom="8dp" />
@@ -46,13 +32,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <!-- Slogan -->
+        <!-- Slogan dvojezični -->
         <TextView
-            android:text="Tvoj istrski second-hand tržni centar 🐐"
-            android:textSize="14sp"
+            android:text="Pronađi svoju stvar · Trova la tua cosa"
+            android:textSize="13sp"
             android:textColor="@color/text_gray"
             android:gravity="center"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -62,7 +48,7 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/koza_green_light"
             app:cardCornerRadius="20dp"
-            app:cardElevation="6dp">
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,6 +104,7 @@
                     android:layout_height="56dp"
                     android:text="Novi korisnik? Registriraj se"
                     android:textSize="14sp"
+                    android:textStyle="bold"
                     android:textColor="@color/text_dark"
                     android:backgroundTint="@color/koza_yellow"
                     android:layout_marginTop="10dp"
@@ -127,4 +114,19 @@
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+
+    <!-- Gumb Preskoči – MORA biti NAKON LinearLayouta u FrameLayoutu
+         da bi bio iznad njega i primao klikove -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_preskoci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="12dp"
+        android:text="Preskoči"
+        android:textSize="13sp"
+        android:textColor="#666666"
+        android:backgroundTint="#E0E0E0"
+        app:cornerRadius="20dp" />
+
 </FrameLayout>

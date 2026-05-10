@@ -12,11 +12,6 @@
         android:title="Pretraži" />
 
     <item
-        android:id="@+id/nav_add"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Dodaj" />
-
-    <item
         android:id="@+id/nav_chat"
         android:icon="@android:drawable/ic_dialog_email"
         android:title="Chat" />

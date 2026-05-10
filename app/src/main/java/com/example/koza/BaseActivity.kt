@@ -6,11 +6,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    protected lateinit var toolbar: MaterialToolbar
+    // Toolbar je opcionalan – HomeActivity ga nema
+    protected var toolbar: MaterialToolbar? = null
     protected lateinit var bottomNav: BottomNavigationView
+    protected var fabAdd: FloatingActionButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +21,17 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun setupNavigation() {
         toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        toolbar?.let { setSupportActionBar(it) }
 
         bottomNav = findViewById(R.id.bottom_nav)
+
+        // FAB za dodavanje oglasa
+        fabAdd = findViewById(R.id.fab_add)
+        fabAdd?.setOnClickListener {
+            if (this !is AddItemActivity) {
+                startActivity(Intent(this, AddItemActivity::class.java))
+            }
+        }
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -34,28 +45,19 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_search -> {
-                    // Placeholder – ekran još nije napravljen
                     Toast.makeText(this, "Pretraga – uskoro 🔍", Toast.LENGTH_SHORT).show()
                     true
                 }
 
-                R.id.nav_add -> {
-                    if (this !is AddItemActivity) {
-                        startActivity(Intent(this, AddItemActivity::class.java))
-                    }
-                    true
-                }
-
                 R.id.nav_chat -> {
-                    // Placeholder – ekran još nije napravljen
                     Toast.makeText(this, "Chat – uskoro 💬", Toast.LENGTH_SHORT).show()
                     true
                 }
 
                 R.id.nav_profile -> {
-                    // Profil gumb → otvara Login ekran
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
+                    if (this !is ProfileActivity) {
+                        startActivity(Intent(this, ProfileActivity::class.java))
+                    }
                     true
                 }
 

@@ -5,50 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/koza_bg">
+    android:background="@color/koza_bg"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <!-- Toolbar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/koza_green"
-        app:title="Koza"
-        app:titleTextColor="@color/koza_white"
-        app:logo="@drawable/prozirna_mramorna_koza" />
-
-    <!-- Traka za pretragu -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="6dp"
-        android:hint="Pretraži artikle..."
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Naslov sekcije -->
-    <TextView
-        android:id="@+id/tv_section"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Najnoviji oglasi"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_dark"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="4dp" />
-
-    <!-- Grid lista oglasa – 2 stupca -->
+    <!-- Grid lista oglasa – od samog vrha ekrana -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_oglasi"
         android:layout_width="match_parent"
@@ -57,14 +18,41 @@
         android:padding="6dp"
         android:clipToPadding="false" />
 
-    <!-- Bottom Navigation – 5 gumba -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <!-- Bottom nav + FAB wrapper -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/koza_white"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/koza_green"
-        app:itemTextColor="@color/koza_green" />
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- Navbar je pomaknut dolje za pola visine FAB-a (28dp)
+             kako bi FAB mogao "iskočiti" iznad njega -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@color/koza_white"
+            app:menu="@menu/bottom_nav_menu"
+            app:itemIconTint="@color/koza_green"
+            app:itemTextColor="@color/koza_green"
+            app:labelVisibilityMode="unlabeled"
+            app:itemBackground="@drawable/nav_item_background" />
+
+        <!-- FAB – zeleni krug koji iskače iz navbara, žuti plusić -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:src="@android:drawable/ic_input_add"
+            android:contentDescription="Dodaj oglas"
+            app:backgroundTint="@color/koza_green"
+            app:tint="@color/koza_yellow"
+            app:fabSize="normal"
+            app:elevation="8dp"
+            app:pressedTranslationZ="12dp" />
+
+    </FrameLayout>
 
 </LinearLayout>

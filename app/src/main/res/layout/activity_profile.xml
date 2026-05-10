@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/koza_bg">
+    android:background="@color/koza_bg"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -26,14 +28,14 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Avatar kartica -->
+            <!-- Avatar kartica – zelena, brand element -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
                 app:cardBackgroundColor="@color/koza_green"
-                app:cardElevation="6dp"
-                android:layout_marginBottom="16dp">
+                app:cardElevation="4dp"
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -44,10 +46,10 @@
 
                     <!-- Avatar krug -->
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        app:cardCornerRadius="36dp"
-                        app:cardBackgroundColor="@color/koza_yellow"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        app:cardCornerRadius="34dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         android:layout_marginEnd="16dp">
 
                         <ImageView
@@ -59,7 +61,7 @@
 
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Ime i email -->
+                    <!-- Ime, email, lokacija -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -75,21 +77,23 @@
                             android:textStyle="bold"
                             android:textColor="@color/koza_white" />
 
+                        <!-- Email – bijeli tekst, povećan font -->
                         <TextView
                             android:id="@+id/tv_email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="pero@email.com"
-                            android:textSize="13sp"
-                            android:textColor="@color/koza_yellow"
-                            android:layout_marginTop="2dp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/koza_white"
+                            android:layout_marginTop="3dp" />
 
+                        <!-- Lokacija – povećan font -->
                         <TextView
                             android:id="@+id/tv_lokacija_profil"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="📍 Pula, Istra"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textColor="#CCFFFFFF"
                             android:layout_marginTop="4dp" />
 
@@ -99,14 +103,14 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Statistike (3 broja) -->
+            <!-- Statistike – minimalna bijela kartica -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/koza_yellow_light"
-                app:cardElevation="3dp"
-                android:layout_marginBottom="16dp">
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -123,6 +127,10 @@
                             android:text="Aktivnih" android:textSize="12sp" android:textColor="@color/text_gray" />
                     </LinearLayout>
 
+                    <View android:layout_width="1dp" android:layout_height="40dp"
+                        android:background="@color/divider"
+                        android:layout_gravity="center_vertical" />
+
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:gravity="center">
                         <TextView android:id="@+id/tv_br_prodano" android:layout_width="wrap_content"
@@ -131,6 +139,10 @@
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="Prodano" android:textSize="12sp" android:textColor="@color/text_gray" />
                     </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="40dp"
+                        android:background="@color/divider"
+                        android:layout_gravity="center_vertical" />
 
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:gravity="center">
@@ -145,93 +157,89 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- LISTA OPCIJA PROFILA -->
+            <!-- Meni kartica 1 -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="@color/card_bg"
-                app:cardElevation="3dp"
-                android:layout_marginBottom="16dp">
+                app:cardElevation="2dp"
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Moji oglasi -->
                     <LinearLayout android:id="@+id/item_moji_oglasi"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="📋" android:textSize="20sp"
+                        <TextView android:text="📋" android:textSize="18sp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Moji oglasi"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
-                        <TextView android:text="›" android:textSize="22sp"
+                        <TextView android:text="›" android:textSize="20sp"
                             android:textColor="@color/text_gray"
                             android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="@color/divider" android:layout_marginStart="56dp" />
+                        android:background="@color/divider" android:layout_marginStart="54dp" />
 
-                    <!-- Omiljeni artikli -->
                     <LinearLayout android:id="@+id/item_omiljeni"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="🐐" android:textSize="20sp"
+                        <TextView android:text="🐐" android:textSize="18sp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Omiljeni artikli"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
-                        <TextView android:text="›" android:textSize="22sp"
+                        <TextView android:text="›" android:textSize="20sp"
                             android:textColor="@color/text_gray"
                             android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="@color/divider" android:layout_marginStart="56dp" />
+                        android:background="@color/divider" android:layout_marginStart="54dp" />
 
-                    <!-- Moje narudžbe -->
                     <LinearLayout android:id="@+id/item_narudzbe"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="🛍️" android:textSize="20sp"
+                        <TextView android:text="🛍️" android:textSize="18sp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Moje narudžbe"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
-                        <TextView android:text="›" android:textSize="22sp"
+                        <TextView android:text="›" android:textSize="20sp"
                             android:textColor="@color/text_gray"
                             android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="@color/divider" android:layout_marginStart="56dp" />
+                        android:background="@color/divider" android:layout_marginStart="54dp" />
 
-                    <!-- Moje prodaje -->
                     <LinearLayout android:id="@+id/item_prodaje"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="💰" android:textSize="20sp"
+                        <TextView android:text="💰" android:textSize="18sp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Moje prodaje"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
-                        <TextView android:text="›" android:textSize="22sp"
+                        <TextView android:text="›" android:textSize="20sp"
                             android:textColor="@color/text_gray"
                             android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -240,53 +248,51 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Postavke kartica -->
+            <!-- Meni kartica 2 – Postavke -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="@color/card_bg"
-                app:cardElevation="3dp"
-                android:layout_marginBottom="16dp">
+                app:cardElevation="2dp"
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Postavke računa -->
                     <LinearLayout android:id="@+id/item_postavke"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="⚙️" android:textSize="20sp"
+                        <TextView android:text="⚙️" android:textSize="18sp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Postavke računa"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
-                        <TextView android:text="›" android:textSize="22sp"
+                        <TextView android:text="›" android:textSize="20sp"
                             android:textColor="@color/text_gray"
                             android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="@color/divider" android:layout_marginStart="56dp" />
+                        android:background="@color/divider" android:layout_marginStart="54dp" />
 
-                    <!-- Pomoć -->
                     <LinearLayout android:id="@+id/item_pomoc"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="❓" android:textSize="20sp"
+                        <TextView android:text="❓" android:textSize="18sp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Pomoć i podrška"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
-                        <TextView android:text="›" android:textSize="22sp"
+                        <TextView android:text="›" android:textSize="20sp"
                             android:textColor="@color/text_gray"
                             android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -305,19 +311,45 @@
                 android:textColor="@color/koza_white"
                 android:backgroundTint="#D32F2F"
                 android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
                 app:cornerRadius="12dp" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <!-- Bottom nav + FAB wrapper -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/koza_white"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/koza_green"
-        app:itemTextColor="@color/koza_green" />
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@color/koza_white"
+            app:menu="@menu/bottom_nav_menu"
+            app:itemIconTint="@color/koza_green"
+            app:itemTextColor="@color/koza_green"
+            app:labelVisibilityMode="unlabeled"
+            app:itemBackground="@drawable/nav_item_background" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:src="@android:drawable/ic_input_add"
+            android:contentDescription="Dodaj oglas"
+            app:backgroundTint="@color/koza_green"
+            app:tint="@color/koza_yellow"
+            app:fabSize="normal"
+            app:elevation="8dp"
+            app:pressedTranslationZ="12dp" />
+
+    </FrameLayout>
 
 </LinearLayout>

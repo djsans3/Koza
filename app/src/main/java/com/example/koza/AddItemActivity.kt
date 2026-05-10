@@ -16,7 +16,7 @@ class AddItemActivity : BaseActivity() {
         setContentView(R.layout.activity_add_item)
         setupNavigation()
 
-        toolbar.title = "Novi oglas"
+        toolbar?.title = "Novi oglas"
 
         val etNaziv = findViewById<TextInputEditText>(R.id.et_naziv)
         val etOpis = findViewById<TextInputEditText>(R.id.et_opis)
@@ -30,13 +30,11 @@ class AddItemActivity : BaseActivity() {
         val spinnerObuca = findViewById<Spinner>(R.id.spinner_obuca)
         val btnObjavi = findViewById<MaterialButton>(R.id.btn_objavi)
 
-        // Popuni spinner za br. obuće
         val brojeviObuce = (35..47).map { it.toString() }.toTypedArray()
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, brojeviObuce)
         spinnerObuca.adapter = spinnerAdapter
 
-        // Prikaz veličine ovisno o kategoriji
-        chipGroupKategorija.setOnCheckedStateChangeListener { group, checkedIds ->
+        chipGroupKategorija.setOnCheckedStateChangeListener { _, checkedIds ->
             val selectedId = checkedIds.firstOrNull()
             layoutVelicinaOdjeca.visibility = View.GONE
             layoutVelicinaObuca.visibility = View.GONE
@@ -66,7 +64,6 @@ class AddItemActivity : BaseActivity() {
                 else -> "Ostalo"
             }
 
-            // Dohvati veličinu prema kategoriji
             val velicina = when {
                 layoutVelicinaOdjeca.visibility == View.VISIBLE -> {
                     when (chipGroupVelicinaOdjeca.checkedChipId) {
@@ -75,9 +72,7 @@ class AddItemActivity : BaseActivity() {
                         R.id.chip_xxxl -> "XXXL"; else -> ""
                     }
                 }
-                layoutVelicinaObuca.visibility == View.VISIBLE -> {
-                    spinnerObuca.selectedItem.toString()
-                }
+                layoutVelicinaObuca.visibility == View.VISIBLE -> spinnerObuca.selectedItem.toString()
                 else -> ""
             }
 
@@ -101,17 +96,12 @@ class AddItemActivity : BaseActivity() {
             )
 
             // TODO: Spremi u Firebase Firestore
-            Toast.makeText(
-                this,
-                "Oglas '${noviOglas.naziv}' objavljen! 🐐",
-                Toast.LENGTH_LONG
-            ).show()
             finish()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        bottomNav.menu.findItem(R.id.nav_add).isChecked = true
+        // Nema nav_add u meniju, FAB je aktivan dodaj gumb
     }
 }

@@ -13,13 +13,11 @@ class ProfileActivity : BaseActivity() {
         setContentView(R.layout.activity_profile)
         setupNavigation()
 
-        toolbar.title = "Moj profil"
+        toolbar?.title = "Moj profil"
 
         // TODO: Učitaj podatke iz Firebase
         val btnOdjavi = findViewById<MaterialButton>(R.id.btn_odjavi)
 
-        // Opcije menija – placeholder Toast poruke
-        // (zamijeniti s pravim Intent-ima kad se naprave ekrani)
         val postaviListener = { id: Int, poruka: String ->
             findViewById<LinearLayout>(id).setOnClickListener {
                 Toast.makeText(this, "$poruka – uskoro dostupno", Toast.LENGTH_SHORT).show()
@@ -34,7 +32,6 @@ class ProfileActivity : BaseActivity() {
         postaviListener(R.id.item_pomoc, "Pomoć i podrška")
 
         btnOdjavi.setOnClickListener {
-            Toast.makeText(this, "Odjavili ste se. Doviđenja! 🐐", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

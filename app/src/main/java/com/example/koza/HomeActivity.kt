@@ -1,7 +1,6 @@
 package com.example.koza
 
 import android.os.Bundle
-import android.content.Intent
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +15,6 @@ class HomeActivity : BaseActivity() {
         setContentView(R.layout.activity_home)
         setupNavigation()
 
-        toolbar.title = "Koza"
-
         val recyclerView = findViewById<RecyclerView>(R.id.rv_oglasi)
 
         adapter = OglasAdapter(listaOglasa) { oglas ->
@@ -25,7 +22,6 @@ class HomeActivity : BaseActivity() {
             // TODO: Intent za DetaljiOglasaActivity
         }
 
-        // 2-STUPČANA GRID MREŽA – Vinted stil
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = adapter
 

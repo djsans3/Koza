@@ -21,8 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
         // PRESKOČI – otvori Home bez prijave
         btnPreskoci.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
 
@@ -36,9 +35,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             // TODO: Firebase Auth
-            Toast.makeText(this, "Prijava uspješna! Dobrodošli u Istru 🐐", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
 

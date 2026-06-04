@@ -45,7 +45,6 @@ class LoginFlowMediumTest {
 
         onView(withId(R.id.btn_login)).perform(click())
 
-        // U v2 HomeActivity prikazuje rv_oglasi
         onView(withId(R.id.rv_oglasi)).check(matches(isDisplayed()))
     }
 

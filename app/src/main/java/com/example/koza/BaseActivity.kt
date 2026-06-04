@@ -9,7 +9,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    protected lateinit var bottomNav: BottomNavigationView
+    protected var bottomNav: BottomNavigationView? = null
     protected var fabAdd: FloatingActionButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
 
-        bottomNav.setOnItemSelectedListener { item ->
+        bottomNav?.setOnItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.nav_home -> {
@@ -38,10 +38,12 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_search -> {
+                    Toast.makeText(this, "Pretraga – uskoro 🔍", Toast.LENGTH_SHORT).show()
                     false
                 }
 
                 R.id.nav_chat -> {
+                    Toast.makeText(this, "Poruke – uskoro 💬", Toast.LENGTH_SHORT).show()
                     false
                 }
 

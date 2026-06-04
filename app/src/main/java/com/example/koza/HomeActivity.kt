@@ -71,6 +71,6 @@ class HomeActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        bottomNav.menu.findItem(R.id.nav_home).isChecked = true
+        bottomNav?.menu?.findItem(R.id.nav_home)?.isChecked = true
     }
 }

@@ -33,7 +33,6 @@ class OglasAdapter(
         holder.tvCijena.text = "${oglas.cijena} €"
         holder.tvWishlistCount.text = oglas.wishlistCount.toString()
 
-        // Prikaz veličine i stanja
         val velicinaStanje = buildString {
             if (oglas.velicina.isNotEmpty()) append(oglas.velicina)
             if (oglas.velicina.isNotEmpty() && oglas.stanje.isNotEmpty()) append(" · ")

@@ -38,6 +38,6 @@ class ProfileActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        bottomNav.menu.findItem(R.id.nav_profile).isChecked = true
+        bottomNav?.menu?.findItem(R.id.nav_profile)?.isChecked = true
     }
 }

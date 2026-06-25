@@ -65,7 +65,7 @@
                             android:text="Pero Perić"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="@color/koza_white" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tv_email"
@@ -73,7 +73,7 @@
                             android:layout_height="wrap_content"
                             android:text="pero@email.com"
                             android:textSize="15sp"
-                            android:textColor="@color/koza_white"
+                            android:textColor="@color/white"
                             android:layout_marginTop="3dp" />
 
                         <TextView
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_bg"
+                app:cardBackgroundColor="@color/white"
                 app:cardElevation="2dp"
                 android:layout_marginBottom="14dp">
 
@@ -148,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_bg"
+                app:cardBackgroundColor="@color/white"
                 app:cardElevation="2dp"
                 android:layout_marginBottom="10dp">
 
@@ -181,9 +181,12 @@
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="20dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
-                        <TextView android:text="💛" android:textSize="18sp"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp" />
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_heart_filled"
+                            android:layout_marginEnd="16dp"
+                            app:tint="@color/koza_yellow" />
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Omiljeni artikli"
                             android:textSize="15sp" android:textColor="@color/text_dark" />
@@ -238,7 +241,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_bg"
+                app:cardBackgroundColor="@color/white"
                 app:cardElevation="2dp"
                 android:layout_marginBottom="14dp">
 
@@ -290,7 +293,7 @@
                 android:id="@+id/btn_odjavi"
                 android:layout_width="match_parent" android:layout_height="50dp"
                 android:text="Odjavi se" android:textSize="15sp"
-                android:textColor="@color/koza_white" android:backgroundTint="#D32F2F"
+                android:textColor="@color/white" android:backgroundTint="#D32F2F"
                 android:layout_marginTop="4dp" android:layout_marginBottom="8dp"
                 app:cornerRadius="12dp" />
 
@@ -298,38 +301,6 @@
 
     </ScrollView>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/koza_white"
-            app:menu="@menu/bottom_nav_menu"
-            app:itemIconTint="@color/koza_green"
-            app:itemTextColor="@color/koza_green"
-            app:labelVisibilityMode="unlabeled"
-            app:itemBackground="@drawable/nav_item_background" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_marginTop="12dp"
-            android:src="@android:drawable/ic_input_add"
-            android:contentDescription="Dodaj oglas"
-            app:backgroundTint="@color/koza_green"
-            app:tint="@color/koza_yellow"
-            app:fabCustomSize="64dp"
-            app:elevation="8dp"
-            app:pressedTranslationZ="12dp" />
-
-    </FrameLayout>
+    <include layout="@layout/layout_bottom_nav" />
 
 </LinearLayout>

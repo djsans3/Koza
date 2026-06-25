@@ -182,20 +182,19 @@
                 android:layout_marginBottom="14dp"
                 android:visibility="gone">
 
-                <TextView
-                    android:text="Broj obuće"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp" />
-
-                <Spinner
-                    android:id="@+id/spinner_obuca"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:background="@drawable/spinner_bg"
-                    android:padding="8dp" />
+                    android:layout_height="wrap_content"
+                    android:hint="Broj obuće (npr. 42,5 ili 42 2/3)"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_velicina_obuca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -276,12 +275,14 @@
                 android:text="Objavi oglas"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/koza_white"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/koza_green"
                 app:cornerRadius="14dp" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <include layout="@layout/layout_bottom_nav" />
 
 </LinearLayout>

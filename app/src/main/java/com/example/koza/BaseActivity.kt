@@ -2,7 +2,6 @@ package com.example.koza
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,16 +34,6 @@ abstract class BaseActivity : AppCompatActivity() {
                         finish()
                     }
                     true
-                }
-
-                R.id.nav_search -> {
-                    Toast.makeText(this, "Pretraga – uskoro 🔍", Toast.LENGTH_SHORT).show()
-                    false
-                }
-
-                R.id.nav_chat -> {
-                    Toast.makeText(this, "Poruke – uskoro 💬", Toast.LENGTH_SHORT).show()
-                    false
                 }
 
                 R.id.nav_profile -> {

@@ -13,5 +13,47 @@ data class Oglas(
     val korisnikIme: String = "",
     val slikaUrl: String = "",
     val wishlistCount: Int = 0,
-    val datum: Long = System.currentTimeMillis()
+    val datum: Long = System.currentTimeMillis(),
+    val isFavorite: Boolean = false,
+    val isMyAd: Boolean = false
 )
+
+fun Oglas.toEntity(): OglasEntity {
+    return OglasEntity(
+        id = id,
+        naziv = naziv,
+        opis = opis,
+        cijena = cijena,
+        lokacija = lokacija,
+        kategorija = kategorija,
+        velicina = velicina,
+        stanje = stanje,
+        korisnikId = korisnikId,
+        korisnikIme = korisnikIme,
+        slikaUrl = slikaUrl,
+        wishlistCount = wishlistCount,
+        datum = datum,
+        isFavorite = isFavorite,
+        isMyAd = isMyAd
+    )
+}
+
+fun OglasEntity.toDomain(): Oglas {
+    return Oglas(
+        id = id,
+        naziv = naziv,
+        opis = opis,
+        cijena = cijena,
+        lokacija = lokacija,
+        kategorija = kategorija,
+        velicina = velicina,
+        stanje = stanje,
+        korisnikId = korisnikId,
+        korisnikIme = korisnikIme,
+        slikaUrl = slikaUrl,
+        wishlistCount = wishlistCount,
+        datum = datum,
+        isFavorite = isFavorite,
+        isMyAd = isMyAd
+    )
+}

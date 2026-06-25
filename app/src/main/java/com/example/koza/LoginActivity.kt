@@ -29,14 +29,26 @@ class LoginActivity : AppCompatActivity() {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Molimo unesite email i lozinku", Toast.LENGTH_SHORT).show()
+            if (email.isEmpty()) {
+                etEmail.error = "Unesite email"
+                return@setOnClickListener
+            }
+            if (!email.contains("@")) {
+                etEmail.error = "Email mora sadržavati @"
+                return@setOnClickListener
+            }
+            if (password.isEmpty()) {
+                etPassword.error = "Unesite lozinku"
                 return@setOnClickListener
             }
 
-            // TODO: Firebase Auth
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
+            // Prototip provjera
+            if (email == "admin@koza.hr" && password == "1234") {
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, "Pogrešan email ili lozinka", Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnRegister.setOnClickListener {

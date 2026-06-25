@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/koza_white"
+    android:background="@color/white"
     android:paddingTop="32dp">
 
     <!-- Središnji sadržaj -->
@@ -94,7 +94,7 @@
                     android:text="Prijavi se"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/koza_white"
+                    android:textColor="@color/white"
                     android:backgroundTint="@color/koza_green"
                     android:layout_marginTop="20dp"
                     app:cornerRadius="14dp" />
@@ -126,8 +126,8 @@
         android:layout_marginEnd="16dp"
         android:text="Preskoči"
         android:textSize="13sp"
-        android:textColor="#666666"
-        android:backgroundTint="#E0E0E0"
+        android:textColor="@color/text_gray"
+        android:backgroundTint="#F0F0F0"
         app:cornerRadius="20dp" />
 
 </FrameLayout>

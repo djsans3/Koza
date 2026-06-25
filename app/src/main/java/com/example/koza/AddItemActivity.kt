@@ -5,16 +5,24 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.launch
+import java.util.UUID
 
 class AddItemActivity : BaseActivity() {
+
+    private lateinit var repository: OglasRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_item)
         setupNavigation()
+
+        val db = KozaDatabase.getDatabase(this)
+        repository = OglasRepository(db.oglasDao())
 
         val etNaziv = findViewById<TextInputEditText>(R.id.et_naziv)
         val etOpis = findViewById<TextInputEditText>(R.id.et_opis)
@@ -25,12 +33,8 @@ class AddItemActivity : BaseActivity() {
         val chipGroupVelicinaOdjeca = findViewById<ChipGroup>(R.id.chip_group_velicina_odjeca)
         val layoutVelicinaOdjeca = findViewById<View>(R.id.layout_velicina_odjeca)
         val layoutVelicinaObuca = findViewById<View>(R.id.layout_velicina_obuca)
-        val spinnerObuca = findViewById<Spinner>(R.id.spinner_obuca)
+        val etVelicinaObuca = findViewById<TextInputEditText>(R.id.et_velicina_obuca)
         val btnObjavi = findViewById<MaterialButton>(R.id.btn_objavi)
-
-        val brojeviObuce = (35..47).map { it.toString() }.toTypedArray()
-        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, brojeviObuce)
-        spinnerObuca.adapter = spinnerAdapter
 
         chipGroupKategorija.setOnCheckedStateChangeListener { _, checkedIds ->
             val selectedId = checkedIds.firstOrNull()
@@ -70,7 +74,7 @@ class AddItemActivity : BaseActivity() {
                         R.id.chip_xxxl -> "XXXL"; else -> ""
                     }
                 }
-                layoutVelicinaObuca.visibility == View.VISIBLE -> spinnerObuca.selectedItem.toString()
+                layoutVelicinaObuca.visibility == View.VISIBLE -> etVelicinaObuca.text.toString().trim()
                 else -> ""
             }
 
@@ -84,17 +88,23 @@ class AddItemActivity : BaseActivity() {
             }
 
             val noviOglas = Oglas(
+                id = UUID.randomUUID().toString(),
                 naziv = naziv,
                 opis = opis,
                 cijena = cijenaStr.toDoubleOrNull() ?: 0.0,
                 lokacija = lokacija,
                 kategorija = kategorija,
                 velicina = velicina,
-                stanje = stanje
+                stanje = stanje,
+                isMyAd = true,
+                korisnikIme = "Moje Ime" // Mock
             )
 
-            // TODO: Spremi u Firebase Firestore
-            finish()
+            lifecycleScope.launch {
+                repository.insertOglas(noviOglas.toEntity())
+                Toast.makeText(this@AddItemActivity, "Oglas uspješno objavljen!", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
     }
 

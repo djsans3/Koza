@@ -2,19 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_search"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="Pretraži" />
-
-    <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
-        android:title="Oglasi" />
+        android:title="Home" />
 
     <item
-        android:id="@+id/nav_chat"
-        android:icon="@android:drawable/stat_notify_chat"
-        android:title="Chat" />
+        android:id="@+id/placeholder"
+        android:title=""
+        android:enabled="false" />
 
     <item
         android:id="@+id/nav_profile"

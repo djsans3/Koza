@@ -23,6 +23,9 @@
         <activity android:name=".HomeActivity" android:exported="false" />
         <activity android:name=".AddItemActivity" android:exported="false" />
         <activity android:name=".ProfileActivity" android:exported="false" />
+        <activity android:name=".DetaljiOglasaActivity" android:exported="false" />
+        <activity android:name=".OmiljeniActivity" android:exported="false" />
+        <activity android:name=".MojiOglasiActivity" android:exported="false" />
 
     </application>
 

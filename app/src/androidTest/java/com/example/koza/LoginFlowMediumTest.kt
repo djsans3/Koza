@@ -38,10 +38,10 @@ class LoginFlowMediumTest {
     @Test
     fun login_sUnesenimPodacima_navigiraUHome() {
         onView(withId(R.id.et_email))
-            .perform(typeText("test@koza.hr"), closeSoftKeyboard())
+            .perform(typeText("admin@koza.hr"), closeSoftKeyboard())
 
         onView(withId(R.id.et_password))
-            .perform(typeText("lozinka123"), closeSoftKeyboard())
+            .perform(typeText("1234"), closeSoftKeyboard())
 
         onView(withId(R.id.btn_login)).perform(click())
 

@@ -60,10 +60,10 @@ class NavigationEndToEndTest {
         // prijavu. Ovaj korisnik mora postojati u bazi podataka aplikacije.
 
         onView(withId(R.id.editTextEmail))          // ← PROMIJENI ID
-            .perform(typeText("test@koza.hr"), closeSoftKeyboard())
+            .perform(typeText("admin@koza.hr"), closeSoftKeyboard())
 
         onView(withId(R.id.editTextPassword))       // ← PROMIJENI ID
-            .perform(typeText("testLozinka123"), closeSoftKeyboard())
+            .perform(typeText("1234"), closeSoftKeyboard())
 
         onView(withId(R.id.buttonPrijava))          // ← PROMIJENI ID
             .perform(click())

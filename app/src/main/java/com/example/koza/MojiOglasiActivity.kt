@@ -2,6 +2,7 @@ package com.example.koza
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +28,11 @@ class MojiOglasiActivity : BaseActivity() {
         }
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_moji_oglasi)
-        adapter = OglasAdapter(listaMojih) { oglas ->
+        adapter = OglasAdapter(
+            listaMojih, 
+            isMyAdsScreen = true,
+            onDeleteKlik = { oglas -> obrisiOglas(oglas) }
+        ) { oglas ->
             val intent = Intent(this, DetaljiOglasaActivity::class.java)
             intent.putExtra("OGLAS_ID", oglas.id)
             startActivity(intent)
@@ -37,6 +42,14 @@ class MojiOglasiActivity : BaseActivity() {
         recyclerView.adapter = adapter
 
         ucitajMojeOglase()
+    }
+
+    private fun obrisiOglas(oglas: Oglas) {
+        lifecycleScope.launch {
+            repository.deleteById(oglas.id)
+            ucitajMojeOglase()
+            Toast.makeText(this@MojiOglasiActivity, "Oglas obrisan", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun ucitajMojeOglase() {

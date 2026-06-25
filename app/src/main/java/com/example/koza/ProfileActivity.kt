@@ -21,7 +21,21 @@ class ProfileActivity : BaseActivity() {
         val db = KozaDatabase.getDatabase(this)
         repository = OglasRepository(db.oglasDao())
 
+        findViewById<TextView>(R.id.tv_ime).text = UserSession.userName
+        findViewById<TextView>(R.id.tv_email).text = UserSession.userEmail
+        
         val btnOdjavi = findViewById<MaterialButton>(R.id.btn_odjavi)
+
+        if (UserSession.isGuest) {
+            findViewById<TextView>(R.id.tv_email).visibility = android.view.View.GONE
+            findViewById<TextView>(R.id.tv_lokacija_profil).visibility = android.view.View.GONE
+            findViewById<com.google.android.material.card.MaterialCardView>(R.id.card_stats).visibility = android.view.View.GONE
+            findViewById<com.google.android.material.card.MaterialCardView>(R.id.card_menu_1).visibility = android.view.View.GONE
+            findViewById<com.google.android.material.card.MaterialCardView>(R.id.card_menu_2).visibility = android.view.View.GONE
+            
+            btnOdjavi.text = "PRIJAVI SE"
+            btnOdjavi.setBackgroundColor(android.graphics.Color.parseColor("#2196F3"))
+        }
 
         val postaviListener = { id: Int, poruka: String ->
             findViewById<LinearLayout>(id).setOnClickListener {
@@ -65,6 +79,6 @@ class ProfileActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         osvjeziStatistiku()
-        bottomNav?.menu?.findItem(R.id.nav_profile)?.isChecked = true
+        bottomNav?.selectedItemId = R.id.nav_profile
     }
 }

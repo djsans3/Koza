@@ -97,7 +97,7 @@ class AddItemActivity : BaseActivity() {
                 velicina = velicina,
                 stanje = stanje,
                 isMyAd = true,
-                korisnikIme = "Moje Ime" // Mock
+                korisnikIme = "admin"
             )
 
             lifecycleScope.launch {

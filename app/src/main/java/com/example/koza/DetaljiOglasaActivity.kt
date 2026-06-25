@@ -2,6 +2,7 @@ package com.example.koza
 
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -56,15 +57,43 @@ class DetaljiOglasaActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_velicina_detalji).text = if (oglas.velicina.isEmpty()) "-" else oglas.velicina
         findViewById<TextView>(R.id.tv_stanje_detalji).text = oglas.stanje
 
-        val btnOmiljeni = findViewById<ImageButton>(R.id.btn_omiljeni_detalji)
-        updateFavoriteButton(oglas.isFavorite)
+        if (oglas.slikaUrl.isNotEmpty()) {
+            val resourceId = resources.getIdentifier(oglas.slikaUrl, "drawable", packageName)
+            if (resourceId != 0) {
+                findViewById<ImageView>(R.id.iv_oglas_velika).setImageResource(resourceId)
+            } else {
+                findViewById<ImageView>(R.id.iv_oglas_velika).setImageResource(R.drawable.koza404)
+            }
+        } else {
+            findViewById<ImageView>(R.id.iv_oglas_velika).setImageResource(R.drawable.koza404)
+        }
 
-        btnOmiljeni.setOnClickListener {
-            toggleFavorite()
+        val btnOmiljeni = findViewById<ImageButton>(R.id.btn_omiljeni_detalji)
+        
+        if (oglas.isMyAd) {
+            btnOmiljeni.setImageResource(R.drawable.ic_delete)
+            btnOmiljeni.setColorFilter(android.graphics.Color.parseColor("#E53935"))
+            btnOmiljeni.setOnClickListener {
+                obrisiOglas()
+            }
+        } else {
+            updateFavoriteButton(oglas.isFavorite)
+            btnOmiljeni.setOnClickListener {
+                toggleFavorite()
+            }
         }
 
         findViewById<MaterialButton>(R.id.btn_kontakt_detalji).setOnClickListener {
             Toast.makeText(this, "Kontaktiranje prodavača ${oglas.korisnikIme}...", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun obrisiOglas() {
+        val id = oglasId ?: return
+        lifecycleScope.launch {
+            repository.deleteById(id)
+            Toast.makeText(this@DetaljiOglasaActivity, "Oglas obrisan", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 

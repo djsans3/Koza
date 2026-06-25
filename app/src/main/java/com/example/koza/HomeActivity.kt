@@ -28,7 +28,7 @@ class HomeActivity : BaseActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rv_oglasi)
         val etSearch = findViewById<TextInputEditText>(R.id.et_search)
 
-        adapter = OglasAdapter(listaOglasa) { oglas ->
+        adapter = OglasAdapter(listaOglasa, isMyAdsScreen = false) { oglas ->
             val intent = Intent(this, DetaljiOglasaActivity::class.java)
             intent.putExtra("OGLAS_ID", oglas.id)
             startActivity(intent)
@@ -62,6 +62,8 @@ class HomeActivity : BaseActivity() {
     private fun osvjeziPodatke() {
         lifecycleScope.launch {
             val entities = repository.getAllOglasi()
+            if (entities.isNotEmpty() && entities[0].slikaUrl.isEmpty()) { ucitajDemoPodatke() }
+
             if (entities.isEmpty()) {
                 ucitajDemoPodatke()
             } else {
@@ -80,42 +82,48 @@ class HomeActivity : BaseActivity() {
                 cijena = 25.0, lokacija = "Pula",
                 kategorija = "Odjeća", velicina = "32/32",
                 stanje = "Kao novo", wishlistCount = 12,
-                opis = "Klasične originalne Levi's traperice, odlično očuvane."
+                opis = "Klasične originalne Levi's traperice, odlično očuvane.",
+                slikaUrl = "levis_501"
             ),
             Oglas(
                 id = "2", naziv = "iPhone 12 – 64GB",
                 cijena = 280.0, lokacija = "Rovinj",
                 kategorija = "Elektronika", velicina = "",
                 stanje = "Dobro", wishlistCount = 5,
-                opis = "iPhone 12, crne boje, zdravlje baterije 85%."
+                opis = "iPhone 12, crne boje, zdravlje baterije 85%.",
+                slikaUrl = "iphone_12"
             ),
             Oglas(
                 id = "3", naziv = "Nike Air Max 90",
                 cijena = 55.0, lokacija = "Poreč",
                 kategorija = "Obuća", velicina = "42",
                 stanje = "Kao novo", wishlistCount = 8,
-                opis = "Nošene svega par puta, bez tragova korištenja."
+                opis = "Nošene svega par puta, bez tragova korištenja.",
+                slikaUrl = "nike_air_max"
             ),
             Oglas(
                 id = "4", naziv = "Maslinovo ulje – domaće 5L",
                 cijena = 35.0, lokacija = "Buje",
                 kategorija = "Ostalo", velicina = "",
                 stanje = "Novo s etiketom", wishlistCount = 3,
-                opis = "Ekstra djevičansko maslinovo ulje, berba 2024."
+                opis = "Ekstra djevičansko maslinovo ulje, berba 2024.",
+                slikaUrl = "maslinovo_ulje"
             ),
             Oglas(
                 id = "5", naziv = "Bicikl Peugeot touring",
                 cijena = 120.0, lokacija = "Pula",
                 kategorija = "Sport", velicina = "",
                 stanje = "Dobro", wishlistCount = 17,
-                opis = "Vintage touring bicikl u voznom stanju."
+                opis = "Vintage touring bicikl u voznom stanju.",
+                slikaUrl = "peugeot_bicikl"
             ),
             Oglas(
                 id = "6", naziv = "Zara haljina – cvjetni print",
                 cijena = 15.0, lokacija = "Umag",
                 kategorija = "Odjeća", velicina = "S",
                 stanje = "Novo bez etikete", wishlistCount = 21,
-                opis = "Lagana ljetna haljina, nikad nošena."
+                opis = "Lagana ljetna haljina, nikad nošena.",
+                slikaUrl = "zara_haljina"
             )
         ).map { it.toEntity() }
 
@@ -128,6 +136,6 @@ class HomeActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         osvjeziPodatke()
-        bottomNav?.menu?.findItem(R.id.nav_home)?.isChecked = true
+        bottomNav?.selectedItemId = R.id.nav_home
     }
 }

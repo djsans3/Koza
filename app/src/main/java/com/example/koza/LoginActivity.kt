@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
         // PRESKOČI – otvori Home bez prijave
         btnPreskoci.setOnClickListener {
+            UserSession.setGuestMode()
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
@@ -44,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
 
             // Prototip provjera
             if (email == "admin@koza.hr" && password == "1234") {
+                UserSession.setAdminMode()
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             } else {

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/koza_bg"
-    android:paddingTop="32dp"
+    android:paddingTop="36dp"
     android:clipChildren="false"
     android:clipToPadding="false">
 
@@ -44,10 +44,11 @@
                         android:layout_marginEnd="16dp">
 
                         <ImageView
+                            android:id="@+id/iv_profilna"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/prozirna_mramorna_koza"
-                            android:padding="10dp"
+                            android:src="@drawable/ic_default_profile"
+                            android:padding="12dp"
                             android:scaleType="fitCenter" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -92,6 +93,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_stats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -145,6 +147,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_menu_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -238,6 +241,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_menu_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"

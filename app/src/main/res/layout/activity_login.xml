@@ -114,20 +114,19 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
+        <!-- Gumb Preskoči – centriran ispod bloka -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_preskoci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:text="Preskoči"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray"
+            android:backgroundTint="#F0F0F0"
+            app:cornerRadius="20dp" />
 
-    <!-- Gumb Preskoči – odmaknut od vrha (status bar) -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_preskoci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Preskoči"
-        android:textSize="13sp"
-        android:textColor="@color/text_gray"
-        android:backgroundTint="#F0F0F0"
-        app:cornerRadius="20dp" />
+    </LinearLayout>
 
 </FrameLayout>

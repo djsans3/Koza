@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class OglasAdapter(
     private var lista: List<Oglas>,
+    private val isMyAdsScreen: Boolean = false,
+    private val onDeleteKlik: ((Oglas) -> Unit)? = null,
     private val onKlik: (Oglas) -> Unit
 ) : RecyclerView.Adapter<OglasAdapter.OglasViewHolder>() {
 
@@ -18,6 +20,7 @@ class OglasAdapter(
         val tvVelicinaStanje: TextView = itemView.findViewById(R.id.tv_velicina_stanje)
         val tvCijena: TextView = itemView.findViewById(R.id.tv_cijena)
         val tvWishlistCount: TextView = itemView.findViewById(R.id.tv_wishlist_count)
+        val ivHeart: ImageView = itemView.findViewById(R.id.iv_heart_grid)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OglasViewHolder {
@@ -31,7 +34,21 @@ class OglasAdapter(
 
         holder.tvNaziv.text = oglas.naziv
         holder.tvCijena.text = "${oglas.cijena} €"
-        holder.tvWishlistCount.text = oglas.wishlistCount.toString()
+        
+        if (isMyAdsScreen) {
+            holder.tvWishlistCount.visibility = View.GONE
+            holder.ivHeart.visibility = View.GONE
+        } else {
+            holder.ivHeart.visibility = View.VISIBLE
+            holder.tvWishlistCount.visibility = View.VISIBLE
+            holder.tvWishlistCount.text = oglas.wishlistCount.toString()
+            holder.ivHeart.setImageResource(R.drawable.ic_heart_filled)
+            if (oglas.isFavorite) {
+                holder.ivHeart.setColorFilter(android.graphics.Color.parseColor("#E53935"))
+            } else {
+                holder.ivHeart.setColorFilter(android.graphics.Color.WHITE)
+            }
+        }
 
         val velicinaStanje = buildString {
             if (oglas.velicina.isNotEmpty()) append(oglas.velicina)
@@ -46,9 +63,17 @@ class OglasAdapter(
             holder.tvVelicinaStanje.visibility = View.GONE
         }
 
-        // TODO: Glide/Picasso za učitavanje slike iz URL-a
-        // Glide.with(holder.itemView.context).load(oglas.slikaUrl).into(holder.ivThumbnail)
-        // Za sada ostaje placeholder
+        if (oglas.slikaUrl.isNotEmpty()) {
+            val context = holder.itemView.context
+            val resourceId = context.resources.getIdentifier(oglas.slikaUrl, "drawable", context.packageName)
+            if (resourceId != 0) {
+                holder.ivThumbnail.setImageResource(resourceId)
+            } else {
+                holder.ivThumbnail.setImageResource(R.drawable.koza404)
+            }
+        } else {
+            holder.ivThumbnail.setImageResource(R.drawable.koza404)
+        }
 
         holder.itemView.setOnClickListener { onKlik(oglas) }
     }

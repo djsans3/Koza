@@ -27,7 +27,7 @@ class OmiljeniActivity : BaseActivity() {
         }
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_omiljeni)
-        adapter = OglasAdapter(listaOmiljenih) { oglas ->
+        adapter = OglasAdapter(listaOmiljenih, isMyAdsScreen = false) { oglas ->
             val intent = Intent(this, DetaljiOglasaActivity::class.java)
             intent.putExtra("OGLAS_ID", oglas.id)
             startActivity(intent)

@@ -9,27 +9,26 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="24dp"
         android:background="@color/white"
         app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/koza_green"
-        app:itemTextColor="@color/koza_green"
-        app:labelVisibilityMode="labeled"
-        app:itemPaddingTop="8dp"
-        app:itemPaddingBottom="8dp" />
+        app:itemIconTint="@color/nav_item_selector"
+        app:itemTextColor="@color/nav_item_selector"
+        app:labelVisibilityMode="unlabeled"
+        app:elevation="0dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="0dp"
         android:src="@android:drawable/ic_input_add"
         android:contentDescription="Dodaj oglas"
         app:backgroundTint="@color/koza_green"
         app:tint="@color/koza_yellow"
-        app:fabCustomSize="64dp"
+        app:fabCustomSize="60dp"
         app:elevation="8dp" />
 
 </FrameLayout>

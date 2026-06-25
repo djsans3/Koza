@@ -19,7 +19,6 @@ class LoginActivity : AppCompatActivity() {
         val btnRegister = findViewById<MaterialButton>(R.id.btn_register)
         val btnPreskoci = findViewById<MaterialButton>(R.id.btn_preskoci)
 
-        // PRESKOČI – otvori Home bez prijave
         btnPreskoci.setOnClickListener {
             UserSession.setGuestMode()
             startActivity(Intent(this, HomeActivity::class.java))
@@ -43,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Prototip provjera
             if (email == "admin@koza.hr" && password == "1234") {
                 UserSession.setAdminMode()
                 startActivity(Intent(this, HomeActivity::class.java))

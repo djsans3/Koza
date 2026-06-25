@@ -31,7 +31,6 @@ class LoginFlowMediumTest {
 
         onView(withId(R.id.btn_login)).perform(click())
 
-        // Provjera da smo još uvijek na LoginActivity (polja su vidljiva)
         onView(withId(R.id.et_email)).check(matches(isDisplayed()))
     }
 

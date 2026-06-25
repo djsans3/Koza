@@ -110,6 +110,5 @@ class AddItemActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Nema nav_add u meniju, FAB je aktivan dodaj gumb
     }
 }

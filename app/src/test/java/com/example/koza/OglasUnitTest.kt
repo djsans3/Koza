@@ -53,40 +53,6 @@ class OglasUnitTest {
         return true
     }
 
-    @Test/*
-    fun `validan oglas prolazi validaciju`() {
-        val oglas = Oglas(
-            naziv    = "Nike Air Max",
-            cijena   = 55.0,
-            lokacija = "Split"
-        )
-        assertTrue("Oglas s ispravnim podacima mora proći validaciju", validirajOglas(oglas))
-    }
-
-    @Test
-    fun `oglas s praznim nazivom ne prolazi validaciju`() {
-        val oglas = Oglas(naziv = "", cijena = 50.0, lokacija = "Rijeka")
-        assertFalse("Oglas s praznim nazivom NE smije proći validaciju", validirajOglas(oglas))
-    }
-
-    @Test
-    fun `oglas s cijenom nula ne prolazi validaciju`() {
-        val oglas = Oglas(naziv = "Cipele", cijena = 0.0, lokacija = "Zagreb")
-        assertFalse("Oglas s cijenom 0 NE smije proći validaciju", validirajOglas(oglas))
-    }
-
-    @Test
-    fun `oglas s negativnom cijenom ne prolazi validaciju`() {
-        val oglas = Oglas(naziv = "Cipele", cijena = -5.0, lokacija = "Zagreb")
-        assertFalse("Oglas s negativnom cijenom NE smije proći validaciju", validirajOglas(oglas))
-    }
-
-    @Test
-    fun `oglas s praznom lokacijom ne prolazi validaciju`() {
-        val oglas = Oglas(naziv = "Bicikl", cijena = 120.0, lokacija = "")
-        assertFalse("Oglas s praznom lokacijom NE smije proći validaciju", validirajOglas(oglas))
-    }
-    */
     @Test
     fun `copy metoda ispravno mijenja jednu vrijednost`() {
         val original = Oglas(naziv = "Originalni naziv", cijena = 10.0, lokacija = "Osijek")

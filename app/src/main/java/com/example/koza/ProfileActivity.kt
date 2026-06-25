@@ -72,7 +72,6 @@ class ProfileActivity : BaseActivity() {
             val mojiOglasi = repository.getMyOglasi()
             findViewById<TextView>(R.id.tv_br_oglasa).text = mojiOglasi.size.toString()
             
-            // Prodano i ocjena ostaju mock za sada
         }
     }
 
